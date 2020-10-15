@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3 th:text="${empleo.nombre}"></h3>
+	<div><b>Fecha de Publicacion: </b><span th:text=${empleo.fechaPub}></span></div>
+	<div><b>Salario: </b><span th:text=${empleo.salario}></span></div>
+	<div><b>Descripcion: </b><span th:text=${empleo.descripcion}></span></div>
+</body>
+</html>
