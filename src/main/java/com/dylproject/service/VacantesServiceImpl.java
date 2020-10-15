@@ -27,7 +27,7 @@ public class VacantesServiceImpl implements IVacantesService{
 			v1.setNombre("Ingeniero en Computacion");
 			v1.setDescripcion("Se requiere ingeniero fullstack");
 			v1.setFechaPub(sdf.parse("12-10-2020"));
-			v1.setSalario(15000.0);
+			v1.setSalario(13000.0);
 			v1.setDestacado(1);
 			v1.setImagen("empresa1.png");
 			
@@ -79,10 +79,22 @@ public class VacantesServiceImpl implements IVacantesService{
 			e.printStackTrace();
 		}
 	}
+	
 	@Override
 	public List<Vacante> getVacantes() {
 		
 		return vacantes;
+	}
+	
+	
+	public Vacante getVacanteById(int id){
+		
+		for(Vacante v:vacantes){
+			if(v.getId()==id){
+				return v;
+			}
+		}
+		return null;
 	}
 
 }
