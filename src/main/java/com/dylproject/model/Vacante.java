@@ -7,24 +7,37 @@ public class Vacante {
 	private Integer id;
 	private String nombre;
 	private String descripcion;
-	private Date fechaPub;
+	private Date fecha;
 	private Double salario;
 	private Integer destacado;
 	private String imagen = "no-image.png";
+	private String detalles;
+	private String estatus;
 	
 	
 	public Vacante() {}
 
 	
 
-	public Vacante(Integer id, String nombre, String descripcion, Date fechaPub, Double salario) {
+
+
+	public Vacante(Integer id, String nombre, String descripcion, Date fecha, Double salario, Integer destacado,
+			String imagen, String detalles, String estatus) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.fechaPub = fechaPub;
+		this.fecha = fecha;
 		this.salario = salario;
+		this.destacado = destacado;
+		this.imagen = imagen;
+		this.detalles = detalles;
+		this.estatus = estatus;
 	}
+
+
+
+
 
 	public Integer getId() {
 		return id;
@@ -55,15 +68,6 @@ public class Vacante {
 		this.descripcion = descripcion;
 	}
 
-
-	public Date getFechaPub() {
-		return fechaPub;
-	}
-
-
-	public void setFechaPub(Date fechaPub) {
-		this.fechaPub = fechaPub;
-	}
 
 
 	public Double getSalario() {
@@ -101,11 +105,66 @@ public class Vacante {
 
 
 
+
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+
+
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+
+
+
+
+	public String getDetalles() {
+		return detalles;
+	}
+
+
+
+
+
+	public void setDetalles(String detalles) {
+		this.detalles = detalles;
+	}
+
+
+
+
+
+	public String getEstatus() {
+		return estatus;
+	}
+
+
+
+
+
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechaPub=" + fechaPub
-				+ ", salario=" + salario + ", destacado=" + destacado+"]";
+		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
+				+ ", salario=" + salario + ", destacado=" + destacado + ", imagen=" + imagen + ", detalles=" + detalles
+				+ ", estatus=" + estatus + "]";
 	}
+
+
+
+	
 	
 	
 }

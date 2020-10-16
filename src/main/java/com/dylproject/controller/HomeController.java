@@ -36,7 +36,7 @@ public class HomeController {
 		
 		e.setNombre("Ingeniero en Computacion");
 		e.setDescripcion("Se requiere ingeniero fullstack");
-		e.setFechaPub(new Date());
+		e.setFecha(new Date());
 		e.setSalario(15000.0);
 		
 		model.addAttribute("empleo", e);

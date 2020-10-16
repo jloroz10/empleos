@@ -26,7 +26,7 @@ public class VacantesServiceImpl implements IVacantesService{
 			v1.setId(1);
 			v1.setNombre("Ingeniero en Computacion");
 			v1.setDescripcion("Se requiere ingeniero fullstack");
-			v1.setFechaPub(sdf.parse("12-10-2020"));
+			v1.setFecha(sdf.parse("12-10-2020"));
 			v1.setSalario(13000.0);
 			v1.setDestacado(1);
 			v1.setImagen("empresa1.png");
@@ -36,7 +36,7 @@ public class VacantesServiceImpl implements IVacantesService{
 			v2.setId(2);
 			v2.setNombre("Ingeniero en Informatica");
 			v2.setDescripcion("Se requiere que tenga experiencia paqueria Office");
-			v2.setFechaPub(sdf.parse("08-10-2020"));
+			v2.setFecha(sdf.parse("08-10-2020"));
 			v2.setSalario(8000.0);
 			v2.setDestacado(0);
 			
@@ -45,7 +45,7 @@ public class VacantesServiceImpl implements IVacantesService{
 			v3.setId(3);
 			v3.setNombre("Licenciado en Mercadotecnia");
 			v3.setDescripcion("Se requiere manejo de redes sociales");
-			v3.setFechaPub(sdf.parse("09-10-2020"));
+			v3.setFecha(sdf.parse("09-10-2020"));
 			v3.setSalario(10000.0);
 			v3.setDestacado(1);
 			v3.setImagen("empresa3.png");
@@ -55,7 +55,7 @@ public class VacantesServiceImpl implements IVacantesService{
 			v4.setId(4);
 			v4.setNombre("auxiliar de Cocina");
 			v4.setDescripcion("Se requiere para restaurante Japones");
-			v4.setFechaPub(sdf.parse("10-10-2020"));
+			v4.setFecha(sdf.parse("10-10-2020"));
 			v4.setSalario(9000.0);
 			v4.setDestacado(1);
 			v4.setImagen("empresa4.png");
@@ -65,7 +65,7 @@ public class VacantesServiceImpl implements IVacantesService{
 			v5.setId(5);
 			v5.setNombre("Maquillista");
 			v5.setDescripcion("Manejo de efectos");
-			v5.setFechaPub(sdf.parse("11-10-2020"));
+			v5.setFecha(sdf.parse("11-10-2020"));
 			v5.setSalario(6000.0);
 			v5.setDestacado(0);
 			
@@ -95,6 +95,12 @@ public class VacantesServiceImpl implements IVacantesService{
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void guardarVacante(Vacante v) {
+		vacantes.add(v);
+		
 	}
 
 }

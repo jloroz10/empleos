@@ -9,4 +9,5 @@ public interface IVacantesService {
 	
 	public List<Vacante> getVacantes();
 	public Vacante getVacanteById(int id);
+	public void guardarVacante(Vacante v);
 }
