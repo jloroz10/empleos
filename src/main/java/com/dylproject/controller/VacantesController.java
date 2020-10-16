@@ -52,10 +52,20 @@ public class VacantesController {
 		
 		serviceVacante.guardarVacante(vacante);
 		System.out.println(vacante);
-
+		
 		
 		return "/vacantes/listVacantes";
 	}
+	
+	@GetMapping("/index")
+	public String mostrarIndex(Model model) {
+		
+		List<Vacante> lista = serviceVacante.getVacantes();
+		model.addAttribute("vacantes", lista);
+		
+		return "/vacantes/listVacantes";
+	}
+	
 	@GetMapping("/view/{id}")
 	public String getDetails(@PathVariable("id") int id, Model model) {
 		System.out.println("IdVacante: "+ id);
