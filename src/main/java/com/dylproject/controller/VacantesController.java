@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -27,7 +29,7 @@ public class VacantesController {
 	private IVacantesService serviceVacante;
 
 	@GetMapping("/create")
-	public String crear(){
+	public String crear(Vacante vacante){
 		return "/vacantes/formVacante";
 	}
 	
@@ -48,7 +50,14 @@ public class VacantesController {
 //	}
 	
 	@PostMapping("/save")
-	public String guardar(Vacante vacante) {
+	public String guardar(Vacante vacante, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			for(ObjectError error: result.getAllErrors()) {
+				System.out.println("error: "+error.getDefaultMessage());
+			}
+			return "/vacantes/formVacante";
+		}
 		
 		serviceVacante.guardarVacante(vacante);
 		System.out.println(vacante);
