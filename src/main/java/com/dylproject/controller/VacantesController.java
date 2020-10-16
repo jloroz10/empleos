@@ -21,6 +21,26 @@ public class VacantesController {
 	@Autowired
 	private IVacantesService serviceVacante;
 
+	@GetMapping("/create")
+	public String crear(){
+		return "/vacantes/formVacante";
+	}
+	
+	@PostMapping("/save")
+	public String guardar(@RequestParam("nombre") String nombre ,@RequestParam("descripcion") String descripcion ,
+			@RequestParam("estatus") String status,@RequestParam("fecha") String fecha,
+			@RequestParam("destacado") int destacado, @RequestParam("salario") double salario,@RequestParam("detalles") String detalles) {
+		
+		System.out.println("Nombre: "+nombre);
+		System.out.println("Descripcion: "+descripcion);
+		System.out.println("Estatus: "+status);
+		System.out.println("Fecha: "+fecha);
+		System.out.println("Destacado: "+destacado);
+		System.out.println("Salario: "+salario);
+		System.out.println("Detalles: "+detalles);
+		
+		return "/vacantes/listVacantes";
+	}
 	@GetMapping("/view/{id}")
 	public String getDetails(@PathVariable("id") int id, Model model) {
 		System.out.println("IdVacante: "+ id);
