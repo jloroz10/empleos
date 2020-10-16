@@ -61,10 +61,9 @@ public class HomeController {
 	@GetMapping("/")
 	public String getHomePage(Model model) {
 		
-		model.addAttribute("message", "Welcome to Empleos App");
-		model.addAttribute("name", "Luis");
-		model.addAttribute("date",new Date());
-		
+		List<Vacante> vacantes = serviceVacantes.getVacantes();
+		model.addAttribute("vacantes", vacantes);
+
 		
 		return "home"; //home is the name of the template (home.html) saved in src/main/resources/templates
 	}

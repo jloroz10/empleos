@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Detalle Vacante</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
 
-</head>
-<body>
-	<div class="container">
-		<div class="d-flex flex-row">
-		<h1>[[${vacante.nombre}]] </h1>
-		  <div>
-			  <td>
-			      		<span th:if="${vacante.destacado} == 1" class="badge badge-pill badge-danger">Hot</span>
-			      		<span th:unless="${vacante.destacado} == 1" class="badge badge-pill badge-info">Regular</span>
-			   </td>
-		  </div>
-		
-		</div>
-		<div>
-			<img th:src="@{/img/{img} (img=${vacante.imagen})}" width="100px" heigh="100px"></img>
-			<p><b>Descripcion</b> [[${vacante.descripcion}]]</p>
-			<p><b>Salario: </b> [[${vacante.salario}]]</p]>
-			<p><b>Fecha de Publicacion: </b> [[${vacante.fechaPub}]]</p>
-		</div>
-	</div>
-</body>
+    <title>EmpleosApp | Aplicación para publicar Ofertas de Trabajo.</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+     <header th:insert="fragments/menu :: menu-principal">
+     
+    </header>
+
+    <main role="main">
+      <hr>
+      <div class="container"> 
+
+        <div class="row">
+          <div class="col-md-3">         
+            <img class="rounded mx-auto d-block" th:src="@{/img/{img} (img=${vacante.imagen})}" alt="Generic placeholder image" width="220" height="220">            
+          </div>
+          <div class="col-md-9">
+            <div class="card">
+              <h4 class="card-header">Aplicar para <strong>[[${vacante.nombre}]]</strong></h4>              
+              <div class="card-body">
+                <h6 class="card-title"><strong>Publicado: </strong> <span>[[${vacante.fechaPub}]]</span></h6>                
+                <h6 class="card-title"><strong>Salario Ofrecido: </strong><span>$[[${vacante.salario}]]</span></h6>
+                <p class="card-text">[[${vacante.descripcion}]]</p>
+                
+                <div class="card bg-light mb-3" >
+                  <div class="card-body">
+                    <h5 class="card-title">Detalles de la oferta de trabajo</h5>
+                    
+                  </div>
+                </div>   
+                <a class="btn btn-secondary" href="#" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Aplicar</a>                            
+              </div>
+            </div>  
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  <footer class="footer" th:insert="fragments/footer :: pie-pagina">
+  
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+  </body>
 </html>
