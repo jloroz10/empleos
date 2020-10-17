@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dylproject.model.Vacante;
 import com.dylproject.service.IVacantesService;
@@ -50,7 +51,7 @@ public class VacantesController {
 //	}
 	
 	@PostMapping("/save")
-	public String guardar(Vacante vacante, BindingResult result) {
+	public String guardar(Vacante vacante, BindingResult result, RedirectAttributes attributes) {
 		
 		if(result.hasErrors()) {
 			for(ObjectError error: result.getAllErrors()) {
@@ -59,11 +60,12 @@ public class VacantesController {
 			return "/vacantes/formVacante";
 		}
 		
+		attributes.addFlashAttribute("msg", "Vacante creata correctamente!");
 		serviceVacante.guardarVacante(vacante);
 		System.out.println(vacante);
 		
-		
-		return "/vacantes/listVacantes";
+		//to internally execute a get request to vacantes/index
+		return "redirect:/vacantes/index";
 	}
 	
 	@GetMapping("/index")
