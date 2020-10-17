@@ -91,12 +91,13 @@ public class VacantesController {
 	}
 	
 	@GetMapping("/delete")
-	public String deleteVacante(@RequestParam("id") int idVacante,Model model) {
+	public String deleteVacante(@RequestParam("id") int idVacante,Model model,RedirectAttributes attributes) {
 		
 		System.out.println("Borrando vacante con id: "+idVacante);
-		String mensaje = "Vacante con id "+idVacante+" fue eliminado correctamente";
-		model.addAttribute("mensaje", mensaje);
-		return "mensaje";
+		
+		serviceVacante.deleteVacantebyId(idVacante);
+		attributes.addFlashAttribute("msgDelete", "Vacante eliminada correctamente!");
+		return "redirect:/vacantes/index";
 	}
 	
 	@GetMapping("/edit")

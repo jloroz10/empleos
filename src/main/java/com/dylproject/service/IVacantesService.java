@@ -11,4 +11,5 @@ public interface IVacantesService {
 	public Vacante getVacanteById(int id);
 	public void guardarVacante(Vacante v);
 	public int getNextId();
+	public void deleteVacantebyId(int idVacante);
 }

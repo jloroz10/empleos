@@ -107,5 +107,16 @@ public class VacantesServiceImpl implements IVacantesService{
 	public int getNextId() {
 		return vacantes.size()+1;
 	}
+
+	@Override
+	public void deleteVacantebyId(int idVacante) {
+		
+		for(int i=0;i<vacantes.size();i++) {
+			if(vacantes.get(i).getId() == idVacante) {
+				vacantes.remove(i);
+				break;
+			}
+		}
+	}
 	
 }
