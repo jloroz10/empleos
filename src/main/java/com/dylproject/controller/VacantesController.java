@@ -60,6 +60,7 @@ public class VacantesController {
 			return "/vacantes/formVacante";
 		}
 		
+		vacante.setId(serviceVacante.getNextId());
 		attributes.addFlashAttribute("msg", "Vacante creata correctamente!");
 		serviceVacante.guardarVacante(vacante);
 		System.out.println(vacante);

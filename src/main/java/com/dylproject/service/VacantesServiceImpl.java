@@ -103,4 +103,9 @@ public class VacantesServiceImpl implements IVacantesService{
 		
 	}
 
+	@Override
+	public int getNextId() {
+		return vacantes.size()+1;
+	}
+	
 }
