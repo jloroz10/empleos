@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dylproject.model.Vacante;
 import com.dylproject.service.ICategoriasService;
 import com.dylproject.service.IVacantesService;
+import com.dylproject.util.Utileria;
 
 @Controller
 @RequestMapping(value="/vacantes")
@@ -56,7 +58,7 @@ public class VacantesController {
 //	}
 	
 	@PostMapping("/save")
-	public String guardar(Vacante vacante, BindingResult result, RedirectAttributes attributes) {
+	public String guardar(Vacante vacante, BindingResult result, RedirectAttributes attributes,@RequestParam("archivoImagen") MultipartFile multiPart) {
 		
 		if(result.hasErrors()) {
 			for(ObjectError error: result.getAllErrors()) {
@@ -67,6 +69,18 @@ public class VacantesController {
 		}
 		
 		vacante.setId(serviceVacante.getNextId());
+		
+		if (!multiPart.isEmpty()) {
+			//String ruta = "/empleos/img-vacantes/"; // Linux/MAC
+//			String ruta = "D:/files/projects/spring/empleos/src/main/resources/static/img/"; // Windows
+			String ruta = "D:/files/projects/empleos/img-vacantes/"; // Windows
+			String nombreImagen = Utileria.guardarArchivo(multiPart, ruta);
+			if (nombreImagen != null){ // La imagen si se subio
+			// Procesamos la variable nombreImagen
+			vacante.setImagen(nombreImagen);
+			}
+		}
+
 		attributes.addFlashAttribute("msg", "Vacante creata correctamente!");
 		serviceVacante.guardarVacante(vacante);
 		System.out.println(vacante);
