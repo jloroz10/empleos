@@ -8,18 +8,18 @@ public class Vacante {
 	private String nombre;
 	private String descripcion;
 	private Date fecha;
-	private String categoria;
 	private Double salario;
 	private Integer destacado;
 	private String imagen = "no-image.png";
 	private String detalles;
 	private String estatus;
+	private Categoria categoria;
 	
 	
 	public Vacante() {}
 
 
-	public Vacante(Integer id, String nombre, String descripcion, Date fecha, String categoria, Double salario,
+	public Vacante(Integer id, String nombre, String descripcion, Date fecha, Categoria categoria, Double salario,
 			Integer destacado, String imagen, String detalles, String estatus) {
 		super();
 		this.id = id;
@@ -124,12 +124,12 @@ public class Vacante {
 	}
 
 
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 

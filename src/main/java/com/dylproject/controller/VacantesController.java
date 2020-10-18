@@ -62,6 +62,7 @@ public class VacantesController {
 			for(ObjectError error: result.getAllErrors()) {
 				System.out.println("error: "+error.getDefaultMessage());
 			}
+			System.out.println(vacante);
 			return "/vacantes/formVacante";
 		}
 		

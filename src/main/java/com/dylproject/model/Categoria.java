@@ -5,6 +5,7 @@ public class Categoria {
 	private String nombre;
 	private String descripcion;
 	
+	public Categoria() {}
 	
 	public Categoria(Integer id, String nombre, String descripcion) {
 		super();
