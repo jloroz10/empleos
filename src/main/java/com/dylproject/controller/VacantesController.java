@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dylproject.model.Vacante;
+import com.dylproject.service.ICategoriasService;
 import com.dylproject.service.IVacantesService;
 
 @Controller
@@ -28,9 +29,13 @@ public class VacantesController {
 	
 	@Autowired
 	private IVacantesService serviceVacante;
-
+	@Autowired
+	private ICategoriasService serviceCategorias;
+	
 	@GetMapping("/create")
-	public String crear(Vacante vacante){
+	public String crear(Vacante vacante, Model modelo){
+		
+		modelo.addAttribute("categorias", serviceCategorias.buscarTodas());
 		return "/vacantes/formVacante";
 	}
 	

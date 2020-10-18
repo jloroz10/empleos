@@ -8,6 +8,7 @@ public class Vacante {
 	private String nombre;
 	private String descripcion;
 	private Date fecha;
+	private String categoria;
 	private Double salario;
 	private Integer destacado;
 	private String imagen = "no-image.png";
@@ -17,17 +18,15 @@ public class Vacante {
 	
 	public Vacante() {}
 
-	
 
-
-
-	public Vacante(Integer id, String nombre, String descripcion, Date fecha, Double salario, Integer destacado,
-			String imagen, String detalles, String estatus) {
+	public Vacante(Integer id, String nombre, String descripcion, Date fecha, String categoria, Double salario,
+			Integer destacado, String imagen, String detalles, String estatus) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
+		this.categoria = categoria;
 		this.salario = salario;
 		this.destacado = destacado;
 		this.imagen = imagen;
@@ -86,57 +85,33 @@ public class Vacante {
 	}
 
 
-
 	public void setDestacado(Integer destacado) {
 		this.destacado = destacado;
 	}
-
-	
 
 	public String getImagen() {
 		return imagen;
 	}
 
-
-
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-
-
-
-
 
 	public Date getFecha() {
 		return fecha;
 	}
 
-
-
-
-
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-
-
-
-
 
 	public String getDetalles() {
 		return detalles;
 	}
 
-
-
-
-
 	public void setDetalles(String detalles) {
 		this.detalles = detalles;
 	}
-
-
-
 
 
 	public String getEstatus() {
@@ -144,27 +119,27 @@ public class Vacante {
 	}
 
 
-
-
-
 	public void setEstatus(String estatus) {
 		this.estatus = estatus;
 	}
 
 
+	public String getCategoria() {
+		return categoria;
+	}
 
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
-				+ ", salario=" + salario + ", destacado=" + destacado + ", imagen=" + imagen + ", detalles=" + detalles
-				+ ", estatus=" + estatus + "]";
+				+ ", categoria=" + categoria + ", salario=" + salario + ", destacado=" + destacado + ", imagen="
+				+ imagen + ", detalles=" + detalles + ", estatus=" + estatus + "]";
 	}
 
 
-
-	
-	
-	
 }
